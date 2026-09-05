@@ -1,0 +1,149 @@
+(venv) solution student$ python retest_test.py 
+Test data reset complete.
+(venv) solution student$ python 03_agentic_app.py
+
+============================================================
+General (resolve)
+============================================================
+User query: How do I reserve a spot for an experience on CultPass?
+Status: resolved
+Route: general
+Urgency: normal
+Confidence: 1.0
+Final answer: You can reserve a spot for an experience on CultPass by following these steps:
+
+1. Open the CultPass app.
+2. Browse the experience catalog to find your desired event.
+3. Tap 'Reserve' to secure your spot.
+
+If the event is premium or has limited availability, make sure to check if you need a reservation confirmation via email. Also, remember to arrive at least 15 minutes early with your QR code visible.
+
+Decision log:
+  - [classifier] routed to general: Reason: The question is about how to reserve a spot, which is a general inquiry applicable to all users and does not require specific user data., Confidence: 0.9, Urgency: normal, Urgency Reason: The inquiry does not indicate any time-sensitive issues or account access problems.
+  - [general_resolver] resolved ticket: grounded=True, sources_used=['How to Reserve a Spot for an Event']
+  - [scorer] Scored the response: Reason: The proposed answer accurately follows the steps outlined in the retrieved documents for reserving a spot on CultPass. It directly addresses the ticket's question and includes all relevant details, such as checking for reservation confirmation and arriving early with a QR code, which are also mentioned in the evidence., Confidence: 1.0
+
+============================================================
+Account - blocked
+============================================================
+User query: I keep getting blocked from logging in, can you check my account status?
+Status: resolved
+Route: account
+Urgency: high
+Confidence: 0.9
+Final answer: Your account is currently blocked, and the status is marked as cancelled. If you need assistance with unblocking your account or have questions about your subscription, please let me know how I can help further.
+
+Decision log:
+  - [classifier] routed to account: Reason: The user is experiencing issues with logging in, which requires checking their specific account status., Confidence: 0.9, Urgency: high, Urgency Reason: The ticket indicates the user is blocked from logging in, which is a critical access issue.
+  - [account_resolver] resolved ticket: grounded=True
+  - [scorer] Scored the response: Reason: The proposed answer accurately reflects the account status as 'cancelled' and confirms that the account is blocked, which aligns with the retrieved account records. It directly addresses the user's inquiry about their account status. The only slight issue is the phrasing 'currently blocked' which could imply a temporary state, but overall, the answer is well-grounded in the evidence., Confidence: 0.9
+
+============================================================
+Account - subscription
+============================================================
+User query: What subscription tier am I currently on, and how many experiences do I have left this month?
+Status: resolved
+Route: account
+Urgency: normal
+Confidence: 1.0
+Final answer: You are currently on the premium subscription tier, and you have 4 experiences left this month. Your account is active and not blocked.
+
+Decision log:
+  - [classifier] routed to account: Reason: The ticket requires looking up the user's specific subscription tier and remaining experiences, which are personal account details., Confidence: 0.9, Urgency: normal, Urgency Reason: The inquiry does not indicate any immediate issues such as being locked out or payment failures.
+  - [account_resolver] resolved ticket: grounded=True
+  - [scorer] Scored the response: Reason: The proposed answer accurately reflects the information in the account records, confirming the user is on the premium subscription tier and has 4 experiences left this month. It directly addresses the ticket's question and is fully supported by the evidence provided., Confidence: 1.0
+
+============================================================
+Ambiguous
+============================================================
+User query: Something's wrong with my pass, can you help?
+Status: resolved
+Route: account
+Urgency: high
+Confidence: 0.9
+Final answer: It appears that your pass is currently on a premium subscription, but the status is marked as "cancelled." This means that your subscription is no longer active. Additionally, I couldn't retrieve any reservation history for your account, which may indicate that there are no current or past reservations linked to it.
+
+If you need further assistance or wish to reactivate your subscription, please let me know!
+
+Decision log:
+  - [classifier] routed to account: Reason: The ticket mentions an issue with the user's pass, which likely requires checking the user's specific account details to resolve., Confidence: 0.9, Urgency: high, Urgency Reason: The mention of something being wrong with the pass suggests a potential access issue, indicating a time-sensitive problem.
+  - [account_resolver] resolved ticket: grounded=True
+  - [scorer] Scored the response: Reason: The proposed answer accurately reflects the account records, stating that the subscription is on a premium tier and marked as 'cancelled.' It also correctly notes the absence of reservation history. The answer directly addresses the user's issue regarding their pass, providing relevant information and offering further assistance. The only minor issue is that the answer could be seen as slightly presumptive about the user's need for reactivation without confirming their intent., Confidence: 0.9
+
+============================================================
+Escalate (no KB match)
+============================================================
+User query: Can I gift my unused monthly experiences to a friend who isn't a CultPass member?
+Status: resolved
+Route: general
+Urgency: normal
+Confidence: 0.8
+Final answer: Based on the information available, it appears that CultPass experiences are tied to individual memberships and cannot be transferred or gifted to non-members. Therefore, you likely cannot gift your unused monthly experiences to a friend who isn't a CultPass member. For the most accurate and specific guidance, it's best to check directly with CultPass customer support or their official policies.
+
+Decision log:
+  - [classifier] routed to general: Reason: The question is about a policy regarding gifting experiences, which applies to all users and does not require specific user data., Confidence: 0.9, Urgency: normal, Urgency Reason: The inquiry does not indicate any time-sensitive issues or account access problems.
+  - [general_resolver] resolved ticket: grounded=True, sources_used=[]
+  - [scorer] Scored the response: Reason: The proposed answer correctly interprets the evidence that CultPass experiences are tied to individual memberships, suggesting that they cannot be gifted to non-members. However, the evidence does not explicitly state this policy, which slightly undermines the confidence in the answer. The recommendation to check with customer support adds value, but the lack of direct evidence for the gifting policy keeps the score below maximum., Confidence: 0.8
+
+============================================================
+Reopened ticket - initial
+============================================================
+User query: How do I reserve a spot for an experience on CultPass?
+Status: resolved
+Route: general
+Urgency: normal
+Confidence: 1.0
+Final answer: You can reserve a spot for an experience on CultPass by following these steps:
+
+1. Open the CultPass app.
+2. Browse the experience catalog to find your desired event.
+3. Tap 'Reserve' to secure your spot.
+
+If the event is premium or has limited availability, make sure to check if you need a reservation confirmation via email. Also, remember to arrive at least 15 minutes early with your QR code visible.
+
+Decision log:
+  - [classifier] routed to general: Reason: The question is about how to reserve a spot, which is a general inquiry applicable to all users and does not require specific user data., Confidence: 0.9, Urgency: normal, Urgency Reason: The inquiry does not indicate any time-sensitive issues or account access problems.
+  - [general_resolver] resolved ticket: grounded=True, sources_used=['How to Reserve a Spot for an Event']
+  - [scorer] Scored the response: Reason: The proposed answer accurately follows the steps outlined in the retrieved documents for reserving a spot on CultPass. It directly addresses the ticket's question and includes all relevant details such as checking for reservation confirmation and arriving early with a QR code, which are also mentioned in the evidence., Confidence: 1.0
+
+============================================================
+Reopened ticket - follow-up (should escalate directly)
+============================================================
+User query: That didn't actually fix it, I'm still having the same problem.
+Status: escalated
+Route: None
+Urgency: normal
+Confidence: None
+Final answer: Thank you for your patience. Your ticket is being reviewed by our support team, and we will get back to you as soon as possible to assist you further.
+
+Decision log:
+  - [classifier] routed to general: Reason: The question is about how to reserve a spot, which is a general inquiry applicable to all users and does not require specific user data., Confidence: 0.9, Urgency: normal, Urgency Reason: The inquiry does not indicate any time-sensitive issues or account access problems.
+  - [general_resolver] resolved ticket: grounded=True, sources_used=['How to Reserve a Spot for an Event']
+  - [scorer] Scored the response: Reason: The proposed answer accurately follows the steps outlined in the retrieved documents for reserving a spot on CultPass. It directly addresses the ticket's question and includes all relevant details such as checking for reservation confirmation and arriving early with a QR code, which are also mentioned in the evidence., Confidence: 1.0
+  - [escalation] Escalated: Reason: The user reported that the initial response did not resolve their issue with reserving a spot on CultPass. The provided steps were generic and did not address the specific problem the user is facing. Further investigation is needed to identify the exact issue.
+
+============================================================
+Returning customer (user_history check)
+============================================================
+User query: I tried reserving a spot for an event but got an error, can you check what happened?
+Status: resolved
+Route: general
+Urgency: normal
+Confidence: 1.0
+Final answer: If you're encountering an error while trying to reserve a spot for an event, please follow these steps:
+
+1. Confirm that the experience still has available spots.
+2. Close and reopen the CultPass app.
+3. Ensure that the app is updated to the latest version.
+4. Retry the reservation.
+
+If you continue to receive an error after trying these steps, please capture the error details and reach out to human support for further assistance.
+
+Decision log:
+  - [classifier] routed to general: Reason: The issue described is related to a reservation error, which is a common problem that can occur for any user and does not require looking up specific user data., Confidence: 0.9, Urgency: normal, Urgency Reason: The ticket does not indicate a time-sensitive issue or a blockage; it simply requests assistance with an error during reservation.
+  - [general_resolver] resolved ticket: grounded=True, sources_used=['What to Do If a Reservation Fails']
+  - [scorer] Scored the response: Reason: The proposed answer directly addresses the user's issue of encountering an error while reserving a spot for an event. It follows the steps outlined in the retrieved documents, which provide a clear troubleshooting process for this specific scenario. The answer is well-grounded in the evidence, as it includes all the necessary steps and suggests reaching out to human support if the issue persists., Confidence: 1.0
+[Document(id='af0fc183-c155-4f2c-b1e6-69db637e7ecd', metadata={'ticket_id': 'af0fc183-c155-4f2c-b1e6-69db637e7ecd', 'user_id': 'f556c0'}, page_content="Q: How do I reserve a spot for an experience on CultPass?\nA: You can reserve a spot for an experience on CultPass by following these steps:\n\n1. Open the CultPass app.\n2. Browse the experience catalog to find your desired event.\n3. Tap 'Reserve' to secure your spot.\n\nIf the event is premium or has limited availability, make sure to check if you need a reservation confirmation via email. Also, remember to arrive at least 15 minutes early with your QR code visible.")]
+
+user_history entries retrieved: 1
+(venv) solution student$ 

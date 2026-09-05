@@ -1,0 +1,30 @@
+# Environment / secrets
+.env
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Generated databases (recreated by 01_/02_*.ipynb — see Setup instructions)
+data/external/*.db
+data/core/*.db
+
+# Generated vector store indexes (recreated by build_indexes.py)
+cultpass_knowledge_base/
+udahub_tickets_knowledge_base/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
